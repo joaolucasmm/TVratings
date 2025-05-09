@@ -1,8 +1,11 @@
+import Grid from "./components/grid/grid"
+
 function App() {
 
   return (
     <>
-      TESTE
+      <h1>Shows</h1>
+      <Grid />
     </>
   )
 }
