@@ -15,10 +15,7 @@ export default function Grid() {
     useEffect(() => {
         const fetchShows = async () => {
             const { data, error } = await supabase.from("shows").select("*");
-
-            console.log("Dados retornados:", data);
-            console.log("Erro retornado:", error);
-
+            
             if (error) {
                 setFetchError("Could not fetch the data");
                 setShows(null);
@@ -31,13 +28,13 @@ export default function Grid() {
         fetchShows();
     }, []);
 
-    function createData(name, duration, gender, rate, release) {
-        return { name, duration, gender, rate, release };
+    function createData(title, duration, genre, rating, release) {
+        return { title, duration, genre, rating, release };
     }
 
     const rows = shows
         ? shows.map((show) =>
-              createData(show.name, show.duration, show.gender, show.rate, show.release)
+              createData(show.title, show.duration, show.genre, show.rating, show.release)
           )
         : [];
 
@@ -50,15 +47,15 @@ export default function Grid() {
                         <TableRow>
                             <TableCell>Title</TableCell>
                             <TableCell align="right">Duration</TableCell>
-                            <TableCell align="right">Gender</TableCell>
-                            <TableCell align="right">Rate</TableCell>
+                            <TableCell align="right">Genre</TableCell>
+                            <TableCell align="right">Rating</TableCell>
                             <TableCell align="right">Release</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                         {rows.map((row) => (
                             <TableRow
-                                key={row.name}
+                                key={row.title}
                                 sx={{
                                     "&:last-child td, &:last-child th": {
                                         border: 0,
@@ -66,15 +63,15 @@ export default function Grid() {
                                 }}
                             >
                                 <TableCell component="th" scope="row">
-                                    {row.name}
+                                    {row.title}
                                 </TableCell>
                                 <TableCell align="right">
                                     {row.duration}
                                 </TableCell>
                                 <TableCell align="right">
-                                    {row.gender}
+                                    {row.genre}
                                 </TableCell>
-                                <TableCell align="right">{row.rate}</TableCell>
+                                <TableCell align="right">{row.rating}</TableCell>
                                 <TableCell align="right">
                                     {row.release}
                                 </TableCell>
