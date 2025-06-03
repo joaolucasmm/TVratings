@@ -26,7 +26,7 @@ export default function Grid({ content }) {
             }
         };
         fetchShows();
-    }, []);
+    }, [content]);
 
     function createData(title, duration, genre, rating, release) {
         return { title, duration, genre, rating, release };
