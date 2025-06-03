@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -8,13 +8,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import supabase from "../../config/supabaseClient";
 
-export default function Grid() {
+export default function Grid({ content }) {
     const [fetchError, setFetchError] = useState(null);
     const [shows, setShows] = useState(null);
 
     useEffect(() => {
         const fetchShows = async () => {
-            const { data, error } = await supabase.from("shows").select("*");
+            const { data, error } = await supabase.from(content).select("*");
             
             if (error) {
                 setFetchError("Could not fetch the data");
