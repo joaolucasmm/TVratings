@@ -10,17 +10,16 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
     "@mui/styled-engine": "^7.1.0",
     "@mui/styled-engine-sc": "^7.1.0",
     "@supabase/supabase-js": "^2.49.4",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
-<<<<<<< HEAD
-=======
     "react-router-dom": "^7.6.1",
->>>>>>> 7a8114ff09398015639f88f7438f7aa4cc405902
     "styled-components": "^6.1.18"
   },
   "devDependencies": {
