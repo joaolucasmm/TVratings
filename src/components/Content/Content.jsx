@@ -4,7 +4,9 @@ import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 function Content({ content, setContent }) {
 
     const handleContent = (event, newContent) => {
-        setContent(newContent);
+        if(newContent){
+            setContent(newContent);
+        }
     };
 
     return (
